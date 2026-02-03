@@ -10,9 +10,10 @@ body{
   font-family:Arial;
   background:url('background.jpg') center/cover fixed;
   color:white;
+  text-align:center;
 }
 
-/* DARK OVERLAY FOR READABILITY */
+/* DARK OVERLAY */
 body::before{
   content:"";
   position:fixed;
@@ -31,7 +32,6 @@ body::before{
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  text-align:center;
   z-index:10;
 }
 
@@ -58,20 +58,37 @@ button{
 
 #main{
   display:none;
-  text-align:center;
   padding:20px;
 }
 
-/* PHOTO FRAME STYLE */
+/* SLIDESHOW CONTAINER */
+
+.slideshow{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  margin-top:20px;
+}
+
+/* CENTERED PHOTO ITEM */
+
+.slideItem{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+
+/* PHOTO FRAME */
 
 .frame{
   background:white;
   padding:12px;
   border-radius:25px;
-  width:320px;
-  margin:auto;
+  width:340px;
+  max-width:90%;
   box-shadow:0 0 15px rgba(0,0,0,0.4);
-  animation:fade 1s;
 }
 
 .frame img{
@@ -84,22 +101,16 @@ button{
 .nameFrame{
   background:#ff4d6d;
   color:white;
-  padding:10px;
-  border-radius:20px;
-  margin-top:10px;
-  font-size:22px;
+  padding:10px 16px;
+  border-radius:22px;
+  margin-top:12px;
+  font-size:24px;
   font-weight:bold;
   box-shadow:0 0 10px rgba(0,0,0,0.3);
   animation:pop 2s infinite;
 }
 
-@keyframes pop{
-  0%{transform:scale(1)}
-  50%{transform:scale(1.06)}
-  100%{transform:scale(1)}
-}
-
-/* SLIDESHOW */
+/* SLIDES */
 
 .slide{
   display:none;
@@ -128,7 +139,15 @@ button{
   text-shadow:1px 1px 4px black;
 }
 
-/* HEARTS */
+/* ANIMATIONS */
+
+@keyframes pop{
+  0%{transform:scale(1)}
+  50%{transform:scale(1.06)}
+  100%{transform:scale(1)}
+}
+
+/* HEART EFFECT */
 
 .heart{
   position:fixed;
@@ -173,66 +192,48 @@ button{
 
 <div class="slideshow">
 
-  <div class="slide">
-    <div class="frame">
-      <img src="photo1.jpg">
-    </div>
+  <div class="slide slideItem">
+    <div class="frame"><img src="photo1.jpg"></div>
     <div class="nameFrame">Halku Baby</div>
   </div>
 
-  <div class="slide">
-    <div class="frame">
-      <img src="photo2.jpg">
-    </div>
+  <div class="slide slideItem">
+    <div class="frame"><img src="photo2.jpg"></div>
     <div class="nameFrame">Kuku</div>
   </div>
 
-  <div class="slide">
-    <div class="frame">
-      <img src="photo3.jpg">
-    </div>
+  <div class="slide slideItem">
+    <div class="frame"><img src="photo3.jpg"></div>
     <div class="nameFrame">Babu</div>
   </div>
 
-  <div class="slide">
-    <div class="frame">
-      <img src="photo4.jpg">
-    </div>
+  <div class="slide slideItem">
+    <div class="frame"><img src="photo4.jpg"></div>
     <div class="nameFrame">Chiku</div>
   </div>
 
-  <div class="slide">
-    <div class="frame">
-      <img src="photo5.jpg">
-    </div>
+  <div class="slide slideItem">
+    <div class="frame"><img src="photo5.jpg"></div>
     <div class="nameFrame">Cutu</div>
   </div>
 
-  <div class="slide">
-    <div class="frame">
-      <img src="photo6.jpg">
-    </div>
+  <div class="slide slideItem">
+    <div class="frame"><img src="photo6.jpg"></div>
     <div class="nameFrame">Momo</div>
   </div>
 
-  <div class="slide">
-    <div class="frame">
-      <img src="photo7.jpg">
-    </div>
+  <div class="slide slideItem">
+    <div class="frame"><img src="photo7.jpg"></div>
     <div class="nameFrame">Pillu</div>
   </div>
 
-  <div class="slide">
-    <div class="frame">
-      <img src="photo8.jpg">
-    </div>
+  <div class="slide slideItem">
+    <div class="frame"><img src="photo8.jpg"></div>
     <div class="nameFrame">Chidkokla</div>
   </div>
 
-  <div class="slide">
-    <div class="frame">
-      <img src="photo9.jpg">
-    </div>
+  <div class="slide slideItem">
+    <div class="frame"><img src="photo9.jpg"></div>
     <div class="nameFrame">Bacchu</div>
   </div>
 
@@ -313,7 +314,7 @@ function slideshow(){
   setTimeout(slideshow,2600);
 }
 
-/* PARAGRAPH FADE IN */
+/* PARAGRAPH FADE IN ON SCROLL */
 
 window.addEventListener("scroll", ()=>{
 
