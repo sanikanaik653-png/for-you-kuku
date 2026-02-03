@@ -1,164 +1,135 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
 <title>For Sahil 💗</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
+
+/* ===== GENERAL ===== */
+
 body{
-  margin:0;
-  font-family:Arial;
-  background:url('background.jpg') center/cover fixed;
-  color:white;
-  text-align:center;
+    margin:0;
+    font-family:Arial;
+    background:url('background.jpg') center/cover fixed;
+    text-align:center;
 }
 
-/* DARK OVERLAY */
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.55);
-  z-index:-1;
-}
-
-/* INTRO PAGE */
+/* ===== INTRO PAGE ===== */
 
 #intro{
-  position:fixed;
-  inset:0;
-  background:#ff4d6d;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  z-index:10;
+    position:fixed;
+    inset:0;
+    background:#fff0f5;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    z-index:10;
+}
+
+.teddyBox{
+    display:flex;
+    gap:20px;
+    margin-bottom:15px;
+}
+
+.teddyBox img{
+    width:140px;
+}
+
+h1{
+    color:#ff4d6d;
+}
+
+.buttons{
+    margin-top:15px;
 }
 
 button{
-  padding:12px 22px;
-  margin:10px;
-  border:none;
-  border-radius:25px;
-  cursor:pointer;
-  font-weight:bold;
+    padding:10px 20px;
+    font-size:18px;
+    border:none;
+    border-radius:20px;
+    margin:5px;
+    cursor:pointer;
 }
 
 #yesBtn{
-  background:white;
-  color:#ff4d6d;
+    background:#ff4d6d;
+    color:white;
 }
 
 #noBtn{
-  background:black;
-  color:white;
+    background:#ccc;
 }
 
-/* MAIN CONTENT */
+/* ===== MAIN PAGE ===== */
 
 #main{
-  display:none;
-  padding:20px;
+    display:none;
+    padding-top:20px;
 }
-
-/* SLIDESHOW CONTAINER */
 
 .slideshow{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-direction:column;
-  margin-top:20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
 }
-
-/* CENTERED PHOTO ITEM */
-
-.slideItem{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-}
-
-/* PHOTO FRAME */
-
-.frame{
-  background:white;
-  padding:12px;
-  border-radius:25px;
-  width:340px;
-  max-width:90%;
-  box-shadow:0 0 15px rgba(0,0,0,0.4);
-}
-
-.frame img{
-  width:100%;
-  border-radius:20px;
-}
-
-/* NICKNAME FRAME */
-
-.nameFrame{
-  background:#ff4d6d;
-  color:white;
-  padding:10px 16px;
-  border-radius:22px;
-  margin-top:12px;
-  font-size:24px;
-  font-weight:bold;
-  box-shadow:0 0 10px rgba(0,0,0,0.3);
-  animation:pop 2s infinite;
-}
-
-/* SLIDES */
 
 .slide{
-  display:none;
+    display:none;
+    flex-direction:column;
+    align-items:center;
 }
 
-/* PARAGRAPH */
+.slide img{
+    width:320px;
+    border-radius:20px;
+    padding:10px;
+    background:white;
+    box-shadow:0 0 10px rgba(0,0,0,0.3);
+}
+
+.nickname{
+    background:#ff4d6d;
+    color:white;
+    padding:10px 15px;
+    border-radius:20px;
+    margin-top:10px;
+    font-size:22px;
+    font-weight:bold;
+}
+
+/* ===== PARAGRAPH ===== */
 
 #paragraph{
-  margin-top:60px;
-  padding:25px;
-  font-size:21px;
-  line-height:1.8;
-  max-width:850px;
-  margin-left:auto;
-  margin-right:auto;
-
-  background:rgba(255,255,255,0.15);
-  backdrop-filter:blur(6px);
-
-  border-radius:20px;
-  opacity:0;
-  transform:translateY(40px);
-  transition:1s;
-
-  color:#ffffff;
-  text-shadow:1px 1px 4px black;
+    margin:40px auto;
+    width:90%;
+    max-width:700px;
+    font-size:18px;
+    line-height:1.6;
+    background:rgba(255,255,255,0.8);
+    padding:20px;
+    border-radius:15px;
 }
 
-/* ANIMATIONS */
-
-@keyframes pop{
-  0%{transform:scale(1)}
-  50%{transform:scale(1.06)}
-  100%{transform:scale(1)}
-}
-
-/* HEART EFFECT */
+/* ===== HEART EFFECT ===== */
 
 .heart{
-  position:fixed;
-  top:-10px;
-  animation:fall linear;
-  font-size:18px;
-  opacity:0.8;
+    position:fixed;
+    top:-10px;
+    animation:fall linear forwards;
+    font-size:20px;
 }
 
 @keyframes fall{
-  to{transform:translateY(110vh);}
+    to{
+        transform:translateY(110vh);
+        opacity:0;
+    }
 }
 
 </style>
@@ -166,23 +137,29 @@ button{
 
 <body>
 
+<!-- MUSIC -->
 <audio id="song" loop>
   <source src="ennasona.mp3">
 </audio>
 
-<!-- INTRO -->
+<!-- INTRO PAGE -->
 
 <div id="intro">
 
-<h2>Hey Sahil 💗</h2>
-<h3>Will you be my Valentine?</h3>
+  <div class="teddyBox">
+     <img src="teddy1.gif">
+     <img src="teddy2.gif">
+  </div>
 
-<button id="yesBtn">YES 💗</button>
-<button id="noBtn">NO 😢</button>
+  <h1>Will you be my Valentine? 💗</h1>
 
-<p id="reply"></p>
+  <div class="buttons">
+    <button id="yesBtn">Yes 💗</button>
+    <button id="noBtn">No 😢</button>
+  </div>
 
 </div>
+
 
 <!-- MAIN PAGE -->
 
@@ -192,143 +169,121 @@ button{
 
 <div class="slideshow">
 
-  <div class="slide slideItem">
-    <div class="frame"><img src="photo1.jpg"></div>
-    <div class="nameFrame">Halku Baby</div>
+  <div class="slide">
+    <img src="photo1.jpg">
+    <div class="nickname">Halku Baby</div>
   </div>
 
-  <div class="slide slideItem">
-    <div class="frame"><img src="photo2.jpg"></div>
-    <div class="nameFrame">Kuku</div>
+  <div class="slide">
+    <img src="photo2.jpg">
+    <div class="nickname">Kuku</div>
   </div>
 
-  <div class="slide slideItem">
-    <div class="frame"><img src="photo3.jpg"></div>
-    <div class="nameFrame">Babu</div>
+  <div class="slide">
+    <img src="photo3.jpg">
+    <div class="nickname">Babu</div>
   </div>
 
-  <div class="slide slideItem">
-    <div class="frame"><img src="photo4.jpg"></div>
-    <div class="nameFrame">Chiku</div>
+  <div class="slide">
+    <img src="photo4.jpg">
+    <div class="nickname">Chiku</div>
   </div>
 
-  <div class="slide slideItem">
-    <div class="frame"><img src="photo5.jpg"></div>
-    <div class="nameFrame">Cutu</div>
+  <div class="slide">
+    <img src="photo5.jpg">
+    <div class="nickname">Cutu</div>
   </div>
 
-  <div class="slide slideItem">
-    <div class="frame"><img src="photo6.jpg"></div>
-    <div class="nameFrame">Momo</div>
+  <div class="slide">
+    <img src="photo6.jpg">
+    <div class="nickname">Momo</div>
   </div>
 
-  <div class="slide slideItem">
-    <div class="frame"><img src="photo7.jpg"></div>
-    <div class="nameFrame">Pillu</div>
+  <div class="slide">
+    <img src="photo7.jpg">
+    <div class="nickname">Pillu</div>
   </div>
 
-  <div class="slide slideItem">
-    <div class="frame"><img src="photo8.jpg"></div>
-    <div class="nameFrame">Chidkokla</div>
+  <div class="slide">
+    <img src="photo8.jpg">
+    <div class="nickname">Chidkokla</div>
   </div>
 
-  <div class="slide slideItem">
-    <div class="frame"><img src="photo9.jpg"></div>
-    <div class="nameFrame">Bacchu</div>
+  <div class="slide">
+    <img src="photo9.jpg">
+    <div class="nickname">Bacchu</div>
   </div>
 
 </div>
 
 <div id="paragraph">
-Dear Sahil 💗 <br><br>
+Dear Sahil 💗<br><br>
 
-Every framed photo above is a little chapter of us.  
-Memories we created, laughs we shared,  
-and moments I will always keep close to my heart.  
+Every photo here holds a special memory of us.  
+You are my happiness, my safe place and my favorite person.<br><br>
 
-You are my happiness, my comfort,  
-and my favorite human in the whole world.  
+No matter what happens in life,  
+I will always choose YOU.<br><br>
 
-No matter where life takes us,  
-I will always choose YOU.  
+Thank you for being mine.<br><br>
 
-Thank you for being you.  
-I love you forever Sahil 💗
+I love you forever 💗
 </div>
 
 </div>
+
 
 <script>
 
-let size = 16;
+// INTRO LOGIC
 
-noBtn.onclick = ()=> {
-  size += 6;
-  yesBtn.style.fontSize = size+"px";
-  reply.innerHTML = "Please say YES Sahil 🥺";
+let size = 18;
+
+noBtn.onclick = function(){
+   size += 6;
+   yesBtn.style.fontSize = size + "px";
 }
 
-yesBtn.onclick = ()=> {
-
-  reply.innerHTML = "I knew you would say YES 💗";
-
-  setTimeout(()=>{
-    intro.style.display="none";
-    main.style.display="block";
-    song.play();
-    hearts();
-    slideshow();
-  },1500);
+yesBtn.onclick = function(){
+   intro.style.display="none";
+   main.style.display="block";
+   song.play();
+   showSlides();
+   hearts();
 }
 
-/* SLOW HEART EFFECT */
 
-function hearts(){
-  setInterval(()=>{
-    let h=document.createElement("div");
-    h.className="heart";
-    h.innerHTML="💗";
-
-    h.style.left=Math.random()*100+"vw";
-    h.style.animationDuration = 8 + Math.random()*5 + "s";
-
-    document.body.appendChild(h);
-
-    setTimeout(()=>h.remove(),12000);
-  },900);
-}
-
-/* SLIDESHOW */
+// SLIDESHOW
 
 let i=0;
 const slides=document.querySelectorAll(".slide");
 
-function slideshow(){
-
+function showSlides(){
   slides.forEach(s=>s.style.display="none");
 
-  slides[i].style.display="block";
+  slides[i].style.display="flex";
 
   i=(i+1)%slides.length;
 
-  setTimeout(slideshow,2600);
+  setTimeout(showSlides,2500);
 }
 
-/* PARAGRAPH FADE IN ON SCROLL */
 
-window.addEventListener("scroll", ()=>{
+// HEART EFFECT
 
-  let para=document.getElementById("paragraph");
+function hearts(){
+  setInterval(()=>{
+     let h=document.createElement("div");
+     h.className="heart";
+     h.textContent="💗";
+     h.style.left=Math.random()*100+"vw";
+     h.style.animationDuration=3+Math.random()*2+"s";
+     document.body.appendChild(h);
 
-  let position=para.getBoundingClientRect().top;
-  let screen=window.innerHeight;
+     setTimeout(()=>h.remove(),5000);
 
-  if(position < screen - 100){
-    para.style.opacity="1";
-    para.style.transform="translateY(0)";
-  }
-
-});
+  },800);
+}
 
 </script>
 
