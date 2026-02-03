@@ -12,6 +12,15 @@ body{
   color:white;
 }
 
+/* DARK TRANSPARENT OVERLAY SO CONTENT IS CLEAR */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.55);
+  z-index:-1;
+}
+
 /* INTRO PAGE */
 
 #intro{
@@ -72,17 +81,20 @@ button{
   to{opacity:1}
 }
 
+/* NICKNAME STYLE */
+
 .nickname{
-  margin-top:10px;
-  font-size:22px;
+  margin-top:12px;
+  font-size:26px;
   font-weight:bold;
-  color:#ffb3c1;
+  color:#ffd6e0;
+  text-shadow:2px 2px 6px black;
   animation:pop 2s infinite;
 }
 
 @keyframes pop{
   0%{transform:scale(1)}
-  50%{transform:scale(1.1)}
+  50%{transform:scale(1.08)}
   100%{transform:scale(1)}
 }
 
@@ -90,26 +102,33 @@ button{
 
 #paragraph{
   margin-top:60px;
-  padding:20px;
-  font-size:20px;
-  line-height:1.7;
-  max-width:800px;
+  padding:25px;
+  font-size:21px;
+  line-height:1.8;
+  max-width:850px;
   margin-left:auto;
   margin-right:auto;
-  background:rgba(0,0,0,0.4);
+
+  background:rgba(255,255,255,0.15);
+  backdrop-filter:blur(6px);
+
   border-radius:20px;
   opacity:0;
   transform:translateY(40px);
   transition:1s;
+
+  color:#ffffff;
+  text-shadow:1px 1px 4px black;
 }
 
-/* HEARTS */
+/* SLOW HEART EFFECT */
 
 .heart{
   position:fixed;
   top:-10px;
   animation:fall linear;
-  font-size:20px;
+  font-size:18px;
+  opacity:0.8;
 }
 
 @keyframes fall{
@@ -180,8 +199,8 @@ button{
 Dear Sahil 💗 <br><br>
 
 Every photo above is a small memory of us.  
-Moments where we laughed, smiled, teased each other  
-and created our own little world.  
+Moments where we laughed, smiled and created  
+our own little world together.  
 
 You are not just my boyfriend,  
 you are my best friend, my comfort place,  
@@ -224,19 +243,22 @@ yesBtn.onclick = ()=> {
   },1500);
 }
 
-/* HEART EFFECT */
+/* SLOW HEART EFFECT */
 
 function hearts(){
   setInterval(()=>{
     let h=document.createElement("div");
     h.className="heart";
     h.innerHTML="💗";
+
     h.style.left=Math.random()*100+"vw";
-    h.style.animationDuration=3+Math.random()*2+"s";
+
+    h.style.animationDuration = 8 + Math.random()*5 + "s";
+
     document.body.appendChild(h);
 
-    setTimeout(()=>h.remove(),5000);
-  },250);
+    setTimeout(()=>h.remove(),12000);
+  },900);
 }
 
 /* SLIDESHOW WITH NICKNAMES */
@@ -258,7 +280,7 @@ function slideshow(){
   setTimeout(slideshow,2500);
 }
 
-/* PARAGRAPH ANIMATION ON SCROLL */
+/* PARAGRAPH FADE ON SCROLL */
 
 window.addEventListener("scroll", ()=>{
 
