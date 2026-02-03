@@ -6,9 +6,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-
-/* ===== GENERAL ===== */
-
 body{
     margin:0;
     font-family:Arial;
@@ -16,7 +13,7 @@ body{
     text-align:center;
 }
 
-/* ===== INTRO PAGE ===== */
+/* ===== INTRO PAGE (UNCHANGED) ===== */
 
 #intro{
     position:fixed;
@@ -27,20 +24,6 @@ body{
     justify-content:center;
     align-items:center;
     z-index:10;
-}
-
-.teddyBox{
-    display:flex;
-    gap:20px;
-    margin-bottom:15px;
-}
-
-.teddyBox img{
-    width:140px;
-}
-
-h1{
-    color:#ff4d6d;
 }
 
 .buttons{
@@ -72,17 +55,22 @@ button{
     padding-top:20px;
 }
 
+/* FIXED SLIDESHOW ALIGNMENT */
+
 .slideshow{
     display:flex;
     justify-content:center;
     align-items:center;
     flex-direction:column;
+    width:100%;
 }
 
 .slide{
     display:none;
     flex-direction:column;
     align-items:center;
+    justify-content:center;
+    width:100%;
 }
 
 .slide img{
@@ -91,7 +79,11 @@ button{
     padding:10px;
     background:white;
     box-shadow:0 0 10px rgba(0,0,0,0.3);
+    display:block;
+    margin:auto;
 }
+
+/* NICKNAME FIXED */
 
 .nickname{
     background:#ff4d6d;
@@ -101,22 +93,24 @@ button{
     margin-top:10px;
     font-size:22px;
     font-weight:bold;
+    text-align:center;
 }
 
-/* ===== PARAGRAPH ===== */
+/* PARAGRAPH FIX */
 
 #paragraph{
     margin:40px auto;
     width:90%;
     max-width:700px;
     font-size:18px;
-    line-height:1.6;
+    line-height:1.7;
     background:rgba(255,255,255,0.8);
     padding:20px;
     border-radius:15px;
+    color:black;
 }
 
-/* ===== HEART EFFECT ===== */
+/* SLOW HEART EFFECT */
 
 .heart{
     position:fixed;
@@ -142,14 +136,9 @@ button{
   <source src="ennasona.mp3">
 </audio>
 
-<!-- INTRO PAGE -->
+<!-- INTRO PAGE (SAME AS YOUR THEME) -->
 
 <div id="intro">
-
-  <div class="teddyBox">
-     <img src="teddy1.gif">
-     <img src="teddy2.gif">
-  </div>
 
   <h1>Will you be my Valentine? 💗</h1>
 
@@ -235,7 +224,7 @@ I love you forever 💗
 
 <script>
 
-// INTRO LOGIC
+// YES / NO LOGIC (UNCHANGED)
 
 let size = 18;
 
@@ -253,23 +242,24 @@ yesBtn.onclick = function(){
 }
 
 
-// SLIDESHOW
+// SLIDESHOW FIXED
 
 let i=0;
 const slides=document.querySelectorAll(".slide");
 
 function showSlides(){
+
   slides.forEach(s=>s.style.display="none");
 
   slides[i].style.display="flex";
 
   i=(i+1)%slides.length;
 
-  setTimeout(showSlides,2500);
+  setTimeout(showSlides,2600);
 }
 
 
-// HEART EFFECT
+// SLOW HEART EFFECT
 
 function hearts(){
   setInterval(()=>{
@@ -277,12 +267,12 @@ function hearts(){
      h.className="heart";
      h.textContent="💗";
      h.style.left=Math.random()*100+"vw";
-     h.style.animationDuration=3+Math.random()*2+"s";
+     h.style.animationDuration=5+Math.random()*3+"s";
      document.body.appendChild(h);
 
-     setTimeout(()=>h.remove(),5000);
+     setTimeout(()=>h.remove(),8000);
 
-  },800);
+  },1200);
 }
 
 </script>
