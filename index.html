@@ -1,129 +1,164 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
 <title>For Sahil 💗</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
 body{
-    margin:0;
-    font-family:Arial;
-    background:url('background.jpg') center/cover fixed;
-    text-align:center;
+  margin:0;
+  font-family:Arial;
+  background:url('background.jpg') center/cover fixed;
+  color:white;
+  text-align:center;
 }
 
-/* ===== INTRO PAGE (UNCHANGED) ===== */
+/* DARK OVERLAY */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.55);
+  z-index:-1;
+}
+
+/* INTRO PAGE */
 
 #intro{
-    position:fixed;
-    inset:0;
-    background:#fff0f5;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    z-index:10;
-}
-
-.buttons{
-    margin-top:15px;
+  position:fixed;
+  inset:0;
+  background:#ff4d6d;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  z-index:10;
 }
 
 button{
-    padding:10px 20px;
-    font-size:18px;
-    border:none;
-    border-radius:20px;
-    margin:5px;
-    cursor:pointer;
+  padding:12px 22px;
+  margin:10px;
+  border:none;
+  border-radius:25px;
+  cursor:pointer;
+  font-weight:bold;
 }
 
 #yesBtn{
-    background:#ff4d6d;
-    color:white;
+  background:white;
+  color:#ff4d6d;
 }
 
 #noBtn{
-    background:#ccc;
+  background:black;
+  color:white;
 }
 
-/* ===== MAIN PAGE ===== */
+/* MAIN CONTENT */
 
 #main{
-    display:none;
-    padding-top:20px;
+  display:none;
+  padding:20px;
 }
 
-/* FIXED SLIDESHOW ALIGNMENT */
+/* SLIDESHOW CONTAINER */
 
 .slideshow{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-    width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  margin-top:20px;
 }
+
+/* CENTERED PHOTO ITEM */
+
+.slideItem{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+
+/* PHOTO FRAME */
+
+.frame{
+  background:white;
+  padding:12px;
+  border-radius:25px;
+  width:340px;
+  max-width:90%;
+  box-shadow:0 0 15px rgba(0,0,0,0.4);
+}
+
+.frame img{
+  width:100%;
+  border-radius:20px;
+}
+
+/* NICKNAME FRAME */
+
+.nameFrame{
+  background:#ff4d6d;
+  color:white;
+  padding:10px 16px;
+  border-radius:22px;
+  margin-top:12px;
+  font-size:24px;
+  font-weight:bold;
+  box-shadow:0 0 10px rgba(0,0,0,0.3);
+  animation:pop 2s infinite;
+}
+
+/* SLIDES */
 
 .slide{
-    display:none;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    width:100%;
+  display:none;
 }
 
-.slide img{
-    width:320px;
-    border-radius:20px;
-    padding:10px;
-    background:white;
-    box-shadow:0 0 10px rgba(0,0,0,0.3);
-    display:block;
-    margin:auto;
-}
-
-/* NICKNAME FIXED */
-
-.nickname{
-    background:#ff4d6d;
-    color:white;
-    padding:10px 15px;
-    border-radius:20px;
-    margin-top:10px;
-    font-size:22px;
-    font-weight:bold;
-    text-align:center;
-}
-
-/* PARAGRAPH FIX */
+/* PARAGRAPH */
 
 #paragraph{
-    margin:40px auto;
-    width:90%;
-    max-width:700px;
-    font-size:18px;
-    line-height:1.7;
-    background:rgba(255,255,255,0.8);
-    padding:20px;
-    border-radius:15px;
-    color:black;
+  margin-top:60px;
+  padding:25px;
+  font-size:21px;
+  line-height:1.8;
+  max-width:850px;
+  margin-left:auto;
+  margin-right:auto;
+
+  background:rgba(255,255,255,0.15);
+  backdrop-filter:blur(6px);
+
+  border-radius:20px;
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s;
+
+  color:#ffffff;
+  text-shadow:1px 1px 4px black;
 }
 
-/* SLOW HEART EFFECT */
+/* ANIMATIONS */
+
+@keyframes pop{
+  0%{transform:scale(1)}
+  50%{transform:scale(1.06)}
+  100%{transform:scale(1)}
+}
+
+/* HEART EFFECT */
 
 .heart{
-    position:fixed;
-    top:-10px;
-    animation:fall linear forwards;
-    font-size:20px;
+  position:fixed;
+  top:-10px;
+  animation:fall linear;
+  font-size:18px;
+  opacity:0.8;
 }
 
 @keyframes fall{
-    to{
-        transform:translateY(110vh);
-        opacity:0;
-    }
+  to{transform:translateY(110vh);}
 }
 
 </style>
@@ -131,24 +166,23 @@ button{
 
 <body>
 
-<!-- MUSIC -->
 <audio id="song" loop>
   <source src="ennasona.mp3">
 </audio>
 
-<!-- INTRO PAGE (SAME AS YOUR THEME) -->
+<!-- INTRO -->
 
 <div id="intro">
 
-  <h1>Will you be my Valentine? 💗</h1>
+<h2>Hey Sahil 💗</h2>
+<h3>Will you be my Valentine?</h3>
 
-  <div class="buttons">
-    <button id="yesBtn">Yes 💗</button>
-    <button id="noBtn">No 😢</button>
-  </div>
+<button id="yesBtn">YES 💗</button>
+<button id="noBtn">NO 😢</button>
+
+<p id="reply"></p>
 
 </div>
-
 
 <!-- MAIN PAGE -->
 
@@ -158,122 +192,143 @@ button{
 
 <div class="slideshow">
 
-  <div class="slide">
-    <img src="photo1.jpg">
-    <div class="nickname">Halku Baby</div>
+  <div class="slide slideItem">
+    <div class="frame"><img src="photo1.jpg"></div>
+    <div class="nameFrame">Halku Baby</div>
   </div>
 
-  <div class="slide">
-    <img src="photo2.jpg">
-    <div class="nickname">Kuku</div>
+  <div class="slide slideItem">
+    <div class="frame"><img src="photo2.jpg"></div>
+    <div class="nameFrame">Kuku</div>
   </div>
 
-  <div class="slide">
-    <img src="photo3.jpg">
-    <div class="nickname">Babu</div>
+  <div class="slide slideItem">
+    <div class="frame"><img src="photo3.jpg"></div>
+    <div class="nameFrame">Babu</div>
   </div>
 
-  <div class="slide">
-    <img src="photo4.jpg">
-    <div class="nickname">Chiku</div>
+  <div class="slide slideItem">
+    <div class="frame"><img src="photo4.jpg"></div>
+    <div class="nameFrame">Chiku</div>
   </div>
 
-  <div class="slide">
-    <img src="photo5.jpg">
-    <div class="nickname">Cutu</div>
+  <div class="slide slideItem">
+    <div class="frame"><img src="photo5.jpg"></div>
+    <div class="nameFrame">Cutu</div>
   </div>
 
-  <div class="slide">
-    <img src="photo6.jpg">
-    <div class="nickname">Momo</div>
+  <div class="slide slideItem">
+    <div class="frame"><img src="photo6.jpg"></div>
+    <div class="nameFrame">Momo</div>
   </div>
 
-  <div class="slide">
-    <img src="photo7.jpg">
-    <div class="nickname">Pillu</div>
+  <div class="slide slideItem">
+    <div class="frame"><img src="photo7.jpg"></div>
+    <div class="nameFrame">Pillu</div>
   </div>
 
-  <div class="slide">
-    <img src="photo8.jpg">
-    <div class="nickname">Chidkokla</div>
+  <div class="slide slideItem">
+    <div class="frame"><img src="photo8.jpg"></div>
+    <div class="nameFrame">Chidkokla</div>
   </div>
 
-  <div class="slide">
-    <img src="photo9.jpg">
-    <div class="nickname">Bacchu</div>
+  <div class="slide slideItem">
+    <div class="frame"><img src="photo9.jpg"></div>
+    <div class="nameFrame">Bacchu</div>
   </div>
 
 </div>
 
 <div id="paragraph">
-Dear Sahil 💗<br><br>
+Dear Sahil 💗 <br><br>
 
-Every photo here holds a special memory of us.  
-You are my happiness, my safe place and my favorite person.<br><br>
+Every framed photo above is a little chapter of us.  
+Memories we created, laughs we shared,  
+and moments I will always keep close to my heart.  
 
-No matter what happens in life,  
-I will always choose YOU.<br><br>
+You are my happiness, my comfort,  
+and my favorite human in the whole world.  
 
-Thank you for being mine.<br><br>
+No matter where life takes us,  
+I will always choose YOU.  
 
-I love you forever 💗
+Thank you for being you.  
+I love you forever Sahil 💗
 </div>
 
 </div>
-
 
 <script>
 
-// YES / NO LOGIC (UNCHANGED)
+let size = 16;
 
-let size = 18;
-
-noBtn.onclick = function(){
-   size += 6;
-   yesBtn.style.fontSize = size + "px";
+noBtn.onclick = ()=> {
+  size += 6;
+  yesBtn.style.fontSize = size+"px";
+  reply.innerHTML = "Please say YES Sahil 🥺";
 }
 
-yesBtn.onclick = function(){
-   intro.style.display="none";
-   main.style.display="block";
-   song.play();
-   showSlides();
-   hearts();
+yesBtn.onclick = ()=> {
+
+  reply.innerHTML = "I knew you would say YES 💗";
+
+  setTimeout(()=>{
+    intro.style.display="none";
+    main.style.display="block";
+    song.play();
+    hearts();
+    slideshow();
+  },1500);
 }
 
+/* SLOW HEART EFFECT */
 
-// SLIDESHOW FIXED
+function hearts(){
+  setInterval(()=>{
+    let h=document.createElement("div");
+    h.className="heart";
+    h.innerHTML="💗";
+
+    h.style.left=Math.random()*100+"vw";
+    h.style.animationDuration = 8 + Math.random()*5 + "s";
+
+    document.body.appendChild(h);
+
+    setTimeout(()=>h.remove(),12000);
+  },900);
+}
+
+/* SLIDESHOW */
 
 let i=0;
 const slides=document.querySelectorAll(".slide");
 
-function showSlides(){
+function slideshow(){
 
   slides.forEach(s=>s.style.display="none");
 
-  slides[i].style.display="flex";
+  slides[i].style.display="block";
 
   i=(i+1)%slides.length;
 
-  setTimeout(showSlides,2600);
+  setTimeout(slideshow,2600);
 }
 
+/* PARAGRAPH FADE IN ON SCROLL */
 
-// SLOW HEART EFFECT
+window.addEventListener("scroll", ()=>{
 
-function hearts(){
-  setInterval(()=>{
-     let h=document.createElement("div");
-     h.className="heart";
-     h.textContent="💗";
-     h.style.left=Math.random()*100+"vw";
-     h.style.animationDuration=5+Math.random()*3+"s";
-     document.body.appendChild(h);
+  let para=document.getElementById("paragraph");
 
-     setTimeout(()=>h.remove(),8000);
+  let position=para.getBoundingClientRect().top;
+  let screen=window.innerHeight;
 
-  },1200);
-}
+  if(position < screen - 100){
+    para.style.opacity="1";
+    para.style.transform="translateY(0)";
+  }
+
+});
 
 </script>
 
