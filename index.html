@@ -1,173 +1,158 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <title>For Sahil 💗</title>
-
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
 
 /* ===== GLOBAL ===== */
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+body{
+  margin:0;
+  font-family:Arial;
+  background:#ffe6ec;
+  text-align:center;
 }
 
-body {
-    font-family: "Poppins", Arial;
-    background: url('background.jpg') no-repeat center center fixed;
-    background-size: cover;
-    text-align: center;
-    overflow-x: hidden;
+/* ===== INTRO ===== */
+
+#intro{
+  position:fixed;
+  inset:0;
+  background:#fff5f8;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+  z-index:10;
 }
 
-/* ===== INTRO PAGE ===== */
+/* HEART RUNNING ANIMATION */
 
-#intro {
-    position: fixed;
-    inset: 0;
-    background: linear-gradient(to bottom, #ff758c, #ff7eb3);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    z-index: 10;
+#heartRun{
+  font-size:60px;
+  position:absolute;
+  left:-100px;
+  animation:run 4s forwards;
 }
 
-#intro h2 {
-    font-size: 28px;
-    margin-bottom: 10px;
-    animation: pop 1.5s infinite alternate;
+@keyframes run{
+  to{ left:50%; transform:translateX(-50%); }
 }
 
-@keyframes pop {
-    from { transform: scale(1); }
-    to { transform: scale(1.05); }
+/* ENVELOPE */
+
+#envelope{
+  font-size:70px;
+  margin-top:80px;
+  opacity:0;
+  animation:showEnv 2s forwards;
+  animation-delay:3.5s;
 }
 
-button {
-    padding: 12px 25px;
-    margin: 10px;
-    border: none;
-    border-radius: 30px;
-    font-size: 18px;
-    cursor: pointer;
-    transition: .3s;
+@keyframes showEnv{
+  to{ opacity:1; }
 }
 
-#yesBtn {
-    background: white;
-    color: #ff4d6d;
-    font-weight: bold;
+/* POP HEARTS */
+
+.popHeart{
+  font-size:26px;
+  position:absolute;
+  opacity:0;
+  animation:pop 2s forwards;
 }
 
-#noBtn {
-    background: black;
-    color: white;
+@keyframes pop{
+  0%{ transform:scale(0); opacity:1; }
+  100%{ transform:scale(1.5); opacity:0; }
 }
 
-button:hover {
-    transform: scale(1.1);
+/* TEXT */
+
+#question{
+  font-size:26px;
+  color:#ff4d6d;
+  margin-top:20px;
+  opacity:0;
+  animation:showQ 2s forwards;
+  animation-delay:6s;
+}
+
+@keyframes showQ{
+  to{ opacity:1; }
+}
+
+/* BUTTONS */
+
+.buttons{
+  margin-top:15px;
+  opacity:0;
+  animation:showBtn 2s forwards;
+  animation-delay:7s;
+}
+
+@keyframes showBtn{
+  to{ opacity:1; }
+}
+
+button{
+  padding:10px 22px;
+  font-size:18px;
+  border:none;
+  border-radius:25px;
+  margin:5px;
+  cursor:pointer;
+}
+
+#yesBtn{
+  background:#ff4d6d;
+  color:white;
+}
+
+#noBtn{
+  background:black;
+  color:white;
 }
 
 /* ===== MAIN PAGE ===== */
 
-.container {
-    display: none;
-    background: rgba(255,255,255,0.9);
-    padding: 25px;
-    margin: 30px auto;
-    width: 92%;
-    max-width: 850px;
-    border-radius: 20px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.2);
-    animation: fadeIn 1s ease;
+#main{
+  display:none;
+  background:white;
+  margin:20px auto;
+  padding:20px;
+  width:90%;
+  max-width:800px;
+  border-radius:20px;
+  box-shadow:0 0 10px rgba(0,0,0,0.2);
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+.slideshow img{
+  width:300px;
+  border-radius:15px;
+  display:none;
+  margin:auto;
 }
 
-h1 {
-    color: #ff4d6d;
-    margin-bottom: 10px;
+/* HEART SHOWER */
+
+.heart{
+  position:fixed;
+  top:-10px;
+  animation:fall linear infinite;
 }
 
-h3 {
-    margin-bottom: 15px;
+@keyframes fall{
+  to{ transform:translateY(100vh); opacity:0; }
 }
 
-/* ===== SLIDESHOW ===== */
-
-.slideshow {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 350px;
-}
-
-.slideshow img {
-    width: 300px;
-    border-radius: 20px;
-    display: none;
-    margin: auto;
-    box-shadow: 0 0 15px rgba(0,0,0,0.3);
-    animation: zoom 1s ease;
-}
-
-@keyframes zoom {
-    from { transform: scale(0.9); opacity: 0.8; }
-    to { transform: scale(1); opacity: 1; }
-}
-
-/* ===== MESSAGE BOX ===== */
-
-#message {
-    margin-top: 20px;
-    font-size: 18px;
-    line-height: 1.7;
-    color: #333;
-    white-space: pre-line;
-    min-height: 200px;
-}
-
-/* ===== HEART EFFECT ===== */
-
-.heart {
-    position: fixed;
-    top: -10px;
-    font-size: 22px;
-    animation: fall linear infinite;
-    pointer-events: none;
-}
-
-@keyframes fall {
-    to {
-        transform: translateY(100vh);
-        opacity: 0;
-    }
-}
-
-/* ===== FOOTER ===== */
-
-.footer {
-    margin-top: 20px;
-    color: #ff4d6d;
-    font-weight: bold;
-    font-size: 18px;
-}
-
-.playBtn {
-    background: #ff4d6d;
-    color: white;
-    border-radius: 20px;
-    padding: 10px 20px;
-    margin-top: 10px;
+.footer{
+  color:#ff4d6d;
+  font-weight:bold;
 }
 
 </style>
@@ -176,139 +161,155 @@ h3 {
 <body>
 
 <audio id="song" loop>
-    <source src="ennasona.mp3" type="audio/mpeg">
+  <source src="ennasona.mp3">
 </audio>
 
 <!-- INTRO PAGE -->
 
 <div id="intro">
-    <h2>Hey Sahil 💗</h2>
-    <h3>Will You Be My Valentine? 💗</h3>
 
+  <div id="heartRun">💗📩</div>
+
+  <div id="envelope">✉️</div>
+
+  <div id="question">Will you be my Valentine? 💗</div>
+
+  <div class="buttons">
     <button id="yesBtn" onclick="openSite()">YES 💗</button>
     <button id="noBtn" onclick="growYes()">NO 😢</button>
+  </div>
+
 </div>
+
 
 <!-- MAIN PAGE -->
 
-<div class="container" id="main">
+<div id="main">
 
-<h1>For My Sahil 💗</h1>
+<h1 style="color:#ff4d6d">For My Sahil 💗</h1>
 
-<h3>Our Precious Memories 💗</h3>
+<h3>Our Memories 💗</h3>
 
 <div class="slideshow">
-    <img class="slides" src="photo1.jpg">
-    <img class="slides" src="photo2.jpg">
-    <img class="slides" src="photo3.jpg">
-    <img class="slides" src="photo4.jpg">
-    <img class="slides" src="photo5.jpg">
-    <img class="slides" src="photo6.jpg">
-    <img class="slides" src="photo7.jpg">
-    <img class="slides" src="photo8.jpg">
-    <img class="slides" src="photo9.jpg">
+  <img class="slides" src="photo1.jpg">
+  <img class="slides" src="photo2.jpg">
+  <img class="slides" src="photo3.jpg">
+  <img class="slides" src="photo4.jpg">
+  <img class="slides" src="photo5.jpg">
+  <img class="slides" src="photo6.jpg">
+  <img class="slides" src="photo7.jpg">
+  <img class="slides" src="photo8.jpg">
+  <img class="slides" src="photo9.jpg">
 </div>
 
-<button class="playBtn" onclick="playSong()">Play Song 🎵</button>
+<button onclick="playSong()">Play Song 🎵</button>
 
 <p id="message"></p>
 
 <p class="footer">
-Made with love 💗<br>
-- Sanika
+Forever Yours,<br>
+Sanika 💗
 </p>
 
 </div>
 
 <script>
 
-/* NO BUTTON FUN */
+/* POP HEARTS AFTER ENVELOPE */
 
-let size = 18;
+setTimeout(()=>{
+  for(let i=0;i<12;i++){
+    let h=document.createElement("div");
+    h.className="popHeart";
+    h.innerHTML="💗";
+    h.style.left=Math.random()*90+"vw";
+    h.style.top=Math.random()*50+"vh";
+    h.style.animationDelay=i*0.2+"s";
+    document.body.appendChild(h);
+  }
+},4500);
 
-function growYes() {
-    size += 12;
-    document.getElementById("yesBtn").style.fontSize = size + "px";
+
+/* BUTTON LOGIC */
+
+let size=18;
+
+function growYes(){
+  size+=10;
+  document.getElementById("yesBtn").style.fontSize=size+"px";
 }
 
-/* OPEN MAIN SITE */
-
-function openSite() {
-    document.getElementById("intro").style.display = "none";
-    document.getElementById("main").style.display = "block";
-
-    playSong();
-    startHearts();
-    startSlideshow();
-    startTyping();
+function openSite(){
+  document.getElementById("intro").style.display="none";
+  document.getElementById("main").style.display="block";
+  playSong();
+  startHearts();
+  startSlideshow();
+  startTyping();
 }
 
 /* MUSIC */
 
-function playSong() {
-    let audio = document.getElementById("song");
-    audio.play();
+function playSong(){
+  document.getElementById("song").play();
 }
 
-/* HEART EFFECT */
+/* HEART SHOWER */
 
-function startHearts() {
-    setInterval(() => {
-        let heart = document.createElement("div");
-        heart.className = "heart";
-        heart.innerHTML = "💗";
-        heart.style.left = Math.random() * 100 + "vw";
-        heart.style.animationDuration = Math.random() * 3 + 3 + "s";
-        document.body.appendChild(heart);
+function startHearts(){
+  setInterval(()=>{
+    let heart=document.createElement("div");
+    heart.className="heart";
+    heart.innerHTML="💗";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.animationDuration=Math.random()*3+3+"s";
+    document.body.appendChild(heart);
 
-        setTimeout(() => heart.remove(), 6000);
-    }, 500);
+    setTimeout(()=>heart.remove(),5000);
+  },500);
 }
 
 /* SLIDESHOW */
 
-let slideIndex = 0;
+let slideIndex=0;
 
-function startSlideshow() {
-    let slides = document.getElementsByClassName("slides");
+function startSlideshow(){
+  let slides=document.getElementsByClassName("slides");
 
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
+  for(let i=0;i<slides.length;i++){
+    slides[i].style.display="none";
+  }
 
-    slideIndex++;
-    if (slideIndex > slides.length) slideIndex = 1;
+  slideIndex++;
+  if(slideIndex>slides.length) slideIndex=1;
 
-    slides[slideIndex-1].style.display = "block";
+  slides[slideIndex-1].style.display="block";
 
-    setTimeout(startSlideshow, 2500);
+  setTimeout(startSlideshow,2300);
 }
 
 /* TYPING MESSAGE */
 
-let text = `Dear Sahil 💗
+let text=`Dear Sahil 💗
 
 You are the best part of my life.
-Every photo here reminds me how lucky I am to have you.
+Every photo reminds me how lucky I am.
 
-You make me smile without trying.
-You make my world brighter and happier.
+You make my world brighter.
 
-No matter what happens in life,
+No matter what happens,
 I will always choose YOU.
-
-Thank you for being mine.
 
 I love you forever 💗`;
 
-let i = 0;
+let i=0;
 
-function startTyping() {
-    if (i < text.length) {
-        document.getElementById("message").innerHTML += text.charAt(i);
-        i++;
-        setTimeout(startTyping, 40);
-    }
+function startTyping(){
+  if(i<text.length){
+    document.getElementById("message").innerHTML+=text.charAt(i);
+    i++;
+    setTimeout(startTyping,40);
+  }
 }
 
 </script>
