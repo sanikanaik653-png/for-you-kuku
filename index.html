@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
 <title>For Sahil 💗</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -12,11 +11,11 @@
 body{
   margin:0;
   font-family:Arial;
-  background:#ffe6ec;
   text-align:center;
+  background:#ffe6ec;
 }
 
-/* ===== INTRO ===== */
+/* ===== INTRO PAGE ===== */
 
 #intro{
   position:fixed;
@@ -26,60 +25,78 @@ body{
   flex-direction:column;
   justify-content:center;
   align-items:center;
-  overflow:hidden;
   z-index:10;
+  overflow:hidden;
 }
 
-/* HEART RUNNING ANIMATION */
+/* HEART RUNNING */
 
-#heartRun{
+#runner{
   font-size:60px;
   position:absolute;
-  left:-100px;
+  left:-120px;
   animation:run 4s forwards;
 }
 
 @keyframes run{
-  to{ left:50%; transform:translateX(-50%); }
+  to{
+    left:50%;
+    transform:translateX(-50%);
+  }
 }
 
 /* ENVELOPE */
 
 #envelope{
-  font-size:70px;
-  margin-top:80px;
+  font-size:80px;
+  margin-top:120px;
   opacity:0;
   animation:showEnv 2s forwards;
-  animation-delay:3.5s;
+  animation-delay:4s;
 }
 
 @keyframes showEnv{
   to{ opacity:1; }
 }
 
+/* ENVELOPE OPEN EFFECT */
+
+#openText{
+  font-size:22px;
+  color:#ff4d6d;
+  margin-top:10px;
+  opacity:0;
+  animation:showTxt 2s forwards;
+  animation-delay:5s;
+}
+
+@keyframes showTxt{
+  to{ opacity:1; }
+}
+
 /* POP HEARTS */
 
 .popHeart{
-  font-size:26px;
   position:absolute;
-  opacity:0;
+  font-size:24px;
   animation:pop 2s forwards;
+  opacity:0;
 }
 
 @keyframes pop{
   0%{ transform:scale(0); opacity:1; }
-  100%{ transform:scale(1.5); opacity:0; }
+  100%{ transform:scale(1.6); opacity:0; }
 }
 
-/* TEXT */
+/* QUESTION */
 
 #question{
+  margin-top:20px;
   font-size:26px;
   color:#ff4d6d;
-  margin-top:20px;
   opacity:0;
   animation:showQ 2s forwards;
-  animation-delay:6s;
+  animation-delay:7s;
 }
 
 @keyframes showQ{
@@ -89,10 +106,10 @@ body{
 /* BUTTONS */
 
 .buttons{
-  margin-top:15px;
+  margin-top:10px;
   opacity:0;
   animation:showBtn 2s forwards;
-  animation-delay:7s;
+  animation-delay:8s;
 }
 
 @keyframes showBtn{
@@ -128,7 +145,6 @@ button{
   width:90%;
   max-width:800px;
   border-radius:20px;
-  box-shadow:0 0 10px rgba(0,0,0,0.2);
 }
 
 .slideshow img{
@@ -147,7 +163,10 @@ button{
 }
 
 @keyframes fall{
-  to{ transform:translateY(100vh); opacity:0; }
+  to{
+    transform:translateY(100vh);
+    opacity:0;
+  }
 }
 
 .footer{
@@ -164,13 +183,15 @@ button{
   <source src="ennasona.mp3">
 </audio>
 
-<!-- INTRO PAGE -->
+<!-- INTRO -->
 
 <div id="intro">
 
-  <div id="heartRun">💗📩</div>
+  <div id="runner">💗📩</div>
 
   <div id="envelope">✉️</div>
+
+  <div id="openText">Opening your love letter...</div>
 
   <div id="question">Will you be my Valentine? 💗</div>
 
@@ -215,10 +236,10 @@ Sanika 💗
 
 <script>
 
-/* POP HEARTS AFTER ENVELOPE */
+/* POP HEARTS FROM ENVELOPE */
 
 setTimeout(()=>{
-  for(let i=0;i<12;i++){
+  for(let i=0;i<15;i++){
     let h=document.createElement("div");
     h.className="popHeart";
     h.innerHTML="💗";
@@ -227,10 +248,10 @@ setTimeout(()=>{
     h.style.animationDelay=i*0.2+"s";
     document.body.appendChild(h);
   }
-},4500);
+},6000);
 
 
-/* BUTTON LOGIC */
+/* YES NO LOGIC */
 
 let size=18;
 
@@ -266,7 +287,7 @@ function startHearts(){
     document.body.appendChild(heart);
 
     setTimeout(()=>heart.remove(),5000);
-  },500);
+  },600);
 }
 
 /* SLIDESHOW */
@@ -288,7 +309,7 @@ function startSlideshow(){
   setTimeout(startSlideshow,2300);
 }
 
-/* TYPING MESSAGE */
+/* TYPING TEXT */
 
 let text=`Dear Sahil 💗
 
